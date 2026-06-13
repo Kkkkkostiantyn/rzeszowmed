@@ -79,18 +79,15 @@ export default function Header({phones, instagram, whatsapp, email, medicineServ
           <div className="flex items-center justify-between h-14">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-lg bg-blue-700 flex items-center justify-center flex-shrink-0">
-                <svg className="w-4.5 h-4.5 text-white" fill="currentColor" viewBox="0 0 24 24" width="18" height="18">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
-                  <path d="M11 8h2v2h-2zm0 4h2v4h-2z" opacity="0"/>
-                </svg>
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <span className="font-bold text-slate-900 text-base tracking-tight leading-tight">
-                MedFaktor<br />
-                <span className="text-blue-700 font-semibold text-xs tracking-widest uppercase">Clinic</span>
+              <svg viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-10 flex-shrink-0">
+                <circle cx="22" cy="8" r="6.5" fill="#3aafa9"/>
+                <ellipse cx="14" cy="34" rx="8" ry="15" fill="#3aafa9" transform="rotate(-22 14 34)"/>
+                <ellipse cx="30" cy="34" rx="8" ry="15" fill="#1b2d5e" transform="rotate(22 30 34)"/>
+              </svg>
+              <span className="leading-tight">
+                <span className="font-bold text-lg tracking-tight" style={{color: '#3aafa9'}}>MED</span><span className="font-bold text-lg tracking-tight" style={{color: '#1b2d5e'}}>FAKTOR</span>
+                <br />
+                <span className="text-slate-400 font-medium text-[9px] tracking-widest uppercase">Medycyna Pracy · Badania</span>
               </span>
             </Link>
 
@@ -100,7 +97,7 @@ export default function Header({phones, instagram, whatsapp, email, medicineServ
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setDropdownOpen((o) => !o)}
-                  className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-all"
+                  className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-500 hover:bg-brand-50 transition-all"
                 >
                   Medycyna Pracy
                   <svg
@@ -118,9 +115,9 @@ export default function Header({phones, instagram, whatsapp, email, medicineServ
                         key={s._id}
                         href={`/medycyna-pracy/${s.slug.current}`}
                         onClick={() => setDropdownOpen(false)}
-                        className="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-800 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-50 hover:text-navy-900 transition-colors"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-400 flex-shrink-0" />
                         {s.title}
                       </Link>
                     ))}
@@ -132,7 +129,7 @@ export default function Header({phones, instagram, whatsapp, email, medicineServ
                 <Link
                   key={p._id}
                   href={`/${p.slug.current}`}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-700 hover:bg-blue-50 transition-all"
+                  className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-500 hover:bg-brand-50 transition-all"
                 >
                   {p.title}
                 </Link>
@@ -173,9 +170,9 @@ export default function Header({phones, instagram, whatsapp, email, medicineServ
                   key={s._id}
                   href={`/medycyna-pracy/${s.slug.current}`}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 pl-7 pr-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-700"
+                  className="flex items-center gap-2 pl-7 pr-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-brand-50 hover:text-brand-500"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-400 flex-shrink-0" />
                   {s.title}
                 </Link>
               ))}

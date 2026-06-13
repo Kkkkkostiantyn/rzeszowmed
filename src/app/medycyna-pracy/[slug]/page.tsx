@@ -28,13 +28,13 @@ export default async function MedicineServicePage({params}: Props) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/30 to-transparent flex items-end p-7">
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/30 to-transparent flex items-end p-7">
             <h1 className="text-white text-2xl font-bold">{service.title}</h1>
           </div>
         </div>
       ) : (
-        <div className="rounded-2xl bg-gradient-to-r from-blue-800 to-blue-600 px-7 py-6">
-          <p className="text-blue-200 text-xs font-semibold uppercase tracking-widest mb-1">Medycyna Pracy</p>
+        <div className="rounded-2xl bg-gradient-to-r from-navy-900 to-brand-400 px-7 py-6">
+          <p className="text-brand-200 text-xs font-semibold uppercase tracking-widest mb-1">Medycyna Pracy</p>
           <h1 className="text-white text-2xl font-bold">{service.title}</h1>
         </div>
       )}

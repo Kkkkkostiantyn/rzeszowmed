@@ -28,7 +28,7 @@ export default async function GenericPage({params}: Props) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/30 to-transparent flex items-end p-7">
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/30 to-transparent flex items-end p-7">
             <h1 className="text-white text-2xl font-bold">{page.title}</h1>
           </div>
         </div>

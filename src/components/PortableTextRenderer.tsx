@@ -13,7 +13,7 @@ const components = {
     ),
     h3: ({children}: {children?: React.ReactNode}) => (
       <h3 className="text-base font-semibold mt-6 mb-2 text-slate-800 flex items-center gap-2">
-        <span className="w-1 h-4 rounded-full bg-blue-500 inline-block flex-shrink-0" />
+        <span className="w-1 h-4 rounded-full bg-brand-500 inline-block flex-shrink-0" />
         {children}
       </h3>
     ),
@@ -29,7 +29,7 @@ const components = {
   listItem: {
     bullet: ({children}: {children?: React.ReactNode}) => (
       <li className="flex items-start gap-2.5 text-[15px] leading-relaxed">
-        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
+        <span className="w-1.5 h-1.5 rounded-full bg-brand-400 mt-2 flex-shrink-0" />
         <span>{children}</span>
       </li>
     ),
