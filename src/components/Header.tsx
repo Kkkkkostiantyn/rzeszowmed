@@ -79,15 +79,18 @@ export default function Header({phones, instagram, whatsapp, email, medicineServ
           <div className="flex items-center justify-between h-14">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              <svg viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-10 flex-shrink-0">
-                <circle cx="22" cy="8" r="6.5" fill="#3aafa9"/>
-                <ellipse cx="14" cy="34" rx="8" ry="15" fill="#3aafa9" transform="rotate(-22 14 34)"/>
-                <ellipse cx="30" cy="34" rx="8" ry="15" fill="#1b2d5e" transform="rotate(22 30 34)"/>
+              <svg viewBox="0 0 72 82" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-10 flex-shrink-0">
+                {/* Left leaf - teal, sweeps up-left */}
+                <path d="M36 72 C16 64 5 40 13 26 C21 16 36 44 36 72Z" fill="#3aafa9"/>
+                {/* Right leaf - navy, sweeps up-right */}
+                <path d="M36 72 C56 64 67 40 59 26 C51 16 36 44 36 72Z" fill="#1b2d5e"/>
+                {/* Head circle */}
+                <circle cx="36" cy="13" r="9" fill="#3aafa9"/>
               </svg>
               <span className="leading-tight">
                 <span className="font-bold text-lg tracking-tight" style={{color: '#3aafa9'}}>MED</span><span className="font-bold text-lg tracking-tight" style={{color: '#1b2d5e'}}>FAKTOR</span>
                 <br />
-                <span className="text-slate-400 font-medium text-[9px] tracking-widest uppercase">Medycyna Pracy · Badania</span>
+                <span className="text-slate-400 font-medium text-[9px] tracking-widest uppercase">Medycyna Pracy · Badania · Szkolenia</span>
               </span>
             </Link>
 
