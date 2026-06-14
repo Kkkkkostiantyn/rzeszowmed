@@ -1,13 +1,20 @@
+import {cache} from 'react'
 import {client} from './client'
 
-export async function getSiteSettings() {
+export const getSiteSettings = cache(async () => {
   return client.fetch(`*[_type == "siteSettings"][0]{
     companyName,
     legalName,
+    shortDescription,
     phones,
     emails,
     instagram,
     whatsapp,
+    facebookUrl,
+    linkedinUrl,
+    mapUrl,
+    workingHours,
+    saturdayHours,
     locations[]{
       _key,
       city,
@@ -15,9 +22,11 @@ export async function getSiteSettings() {
       phones
     },
     appointmentLabel,
-    appointmentUrl
+    appointmentUrl,
+    heroImage,
+    stats[]{value, label}
   }`)
-}
+})
 
 export async function getPage(slug: string) {
   return client.fetch(
@@ -59,6 +68,10 @@ export async function getAllMedicineServices() {
     _id,
     title,
     slug,
-    order
+    order,
+    shortDescription,
+    icon,
+    featured,
+    processingTime
   }`)
 }

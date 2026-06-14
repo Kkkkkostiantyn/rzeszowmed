@@ -12,19 +12,23 @@ type Props = {
   locations: Location[]
   phones: string[]
   emails: string[]
+  mapUrl?: string
+  workingHours?: string
+  saturdayHours?: string
 }
 
-export default function Sidebar({appointmentLabel, appointmentUrl, legalName, locations, phones, emails}: Props) {
+export default function Sidebar({appointmentLabel, appointmentUrl, legalName, locations, phones, emails, mapUrl, workingHours, saturdayHours}: Props) {
   return (
     <aside className="space-y-4">
       {/* Appointment CTA */}
-      <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-brand-500 to-navy-900 p-6 text-white shadow-lg shadow-navy-900/20">
+      <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-navy-900 to-brand-500 p-6 text-white shadow-lg shadow-navy-900/20">
         <div className="mb-1">
           <span className="text-xs font-semibold uppercase tracking-widest text-brand-200">Zaplanuj wizytę</span>
         </div>
-        <p className="font-semibold text-lg leading-snug mb-4">
+        <p className="font-semibold text-lg leading-snug mb-1">
           {appointmentLabel || 'Umów badanie medyczne'}
         </p>
+        <p className="text-sm text-white/70 mb-4">Szybko, wygodnie, bez kolejek.</p>
         {appointmentUrl && (
           <a
             href={appointmentUrl}
@@ -60,6 +64,12 @@ export default function Sidebar({appointmentLabel, appointmentUrl, legalName, lo
                   <div>
                     <p className="text-xs font-semibold text-slate-700">{loc.city}</p>
                     <p className="text-xs text-slate-500">{loc.address}</p>
+                    {mapUrl && (
+                      <a href={mapUrl} target="_blank" rel="noopener noreferrer"
+                        className="text-xs text-brand-500 hover:text-brand-600 transition-colors mt-0.5 inline-block">
+                        Zobacz na mapie →
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
@@ -68,18 +78,22 @@ export default function Sidebar({appointmentLabel, appointmentUrl, legalName, lo
 
           {/* Phones */}
           {phones.length > 0 && (
-            <div className="pt-3 border-t border-slate-100 space-y-1.5">
+            <div className="pt-3 border-t border-slate-100 space-y-2">
               {phones.map((phone) => (
-                <a
-                  key={phone}
-                  href={`tel:${phone.replace(/[\s]/g, '')}`}
-                  className="flex items-center gap-2.5 text-sm text-slate-700 hover:text-brand-500 transition-colors"
-                >
-                  <svg className="w-4 h-4 text-brand-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  {phone}
-                </a>
+                <div key={phone}>
+                  <a
+                    href={`tel:${phone.replace(/[\s]/g, '')}`}
+                    className="flex items-center gap-2.5 text-sm text-slate-700 hover:text-brand-500 transition-colors"
+                  >
+                    <svg className="w-4 h-4 text-brand-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    {phone}
+                  </a>
+                  <a href={`tel:${phone.replace(/[\s]/g, '')}`} className="text-xs text-brand-500 hover:text-brand-600 transition-colors pl-6.5">
+                    Zadzwoń teraz
+                  </a>
+                </div>
               ))}
             </div>
           )}
@@ -99,6 +113,21 @@ export default function Sidebar({appointmentLabel, appointmentUrl, legalName, lo
                   <span className="break-all">{mail}</span>
                 </a>
               ))}
+            </div>
+          )}
+
+          {/* Hours */}
+          {(workingHours || saturdayHours) && (
+            <div className="pt-3 border-t border-slate-100">
+              <div className="flex items-start gap-2.5">
+                <svg className="w-4 h-4 text-brand-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div className="text-xs text-slate-600 space-y-0.5">
+                  {workingHours && <p>{workingHours}</p>}
+                  {saturdayHours && <p>{saturdayHours}</p>}
+                </div>
+              </div>
             </div>
           )}
         </div>
